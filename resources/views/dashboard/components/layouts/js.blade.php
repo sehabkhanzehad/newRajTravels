@@ -14,4 +14,4 @@
  <script src="{{ asset('adminDashboard/js/axios.min.js') }}"></script>
  <script src="{{ asset('adminDashboard/js/config.js') }}"></script>
  <script src="{{ asset('adminDashboard/js/toastify-js.js') }}"></script>
- @yield('js')
+ @yield('scripts')

@@ -1,4 +1,3 @@
-{{-- @if (route('admin.dashboard.*') == url()->current()) --}}
 <div id="leftsidebar" class="sidebar">
     <div class="menu">
         <ul class="list">
@@ -9,8 +8,8 @@
                                 alt="User"></a>
                     </div>
                     <div class="detail">
-                        <h6>Michael</h6>
-                        <p class="m-b-0">info@example.com</p>
+                        <h6 id ="adminName"></h6>
+                        <p class="m-b-0" id ="adminEmail"></p>
                         <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                 class="zmdi zmdi-facebook-box"></i></a>
                         <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
@@ -149,7 +148,8 @@
         </ul>
     </div>
 </div>
-{{-- @endif --}}
+
+
 @if (Route::is('website.*'))
     <div id="leftsidebar" class="sidebar">
         <div class="menu">

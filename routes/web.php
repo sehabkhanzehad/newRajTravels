@@ -13,17 +13,12 @@ Route::get("/sign-out", [AuthController::class, "signOut"])->name("auth.signout"
 
 
 
-Route::get("/dashboard", [DashboardController::class, "showDashboardPage"])->name("dashboard");
+Route::get("/dashboard", [DashboardController::class, "showDashboardPage"])->name("dashboard.home")->middleware("AuthCheck");
 
 
+Route::get("/dashboard/admin-info", [DashboardController::class, "adminInfo"])->name("dashboard.admin-info");
 
 
-
-
-
-Route::get('/', function () {
-    return view('dashboard.pages.index');
-})->name("dashboard.home");
 
 
 

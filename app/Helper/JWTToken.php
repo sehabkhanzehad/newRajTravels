@@ -24,7 +24,7 @@ class JWTToken
     {
         try {
             if ($token == null) {
-                return "Unauthorized";
+                return null;
             } else {
                 $key = env('JWT_KEY');
                 $decode = JWT::decode($token, new Key($key, 'HS256'));
@@ -36,7 +36,7 @@ class JWTToken
             //     'message' => $e->getMessage(),
             // ]);
 
-            return "Unauthorized";
+            return null;
         }
     }
 }

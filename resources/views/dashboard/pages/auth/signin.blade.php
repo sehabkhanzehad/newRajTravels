@@ -15,9 +15,19 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="{{ asset('adminDashboard') }}/css/main.css">
     <link rel="stylesheet" href="{{ asset('adminDashboard') }}/css/color_skins.css">
+
+    <link rel="stylesheet" href="{{ asset('adminDashboard/css/progress.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminDashboard/css/toastify.min.css') }}">
 </head>
 
 <body class="theme-light">
+    <!-- Page Loader -->
+    <div id="loader" class="LoadingOverlay d-none">
+        <div class="Line-Progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+
     <div class="authentication">
         <div class="container">
             <div class="col-md-12 content-center">
@@ -45,7 +55,7 @@
                             </form>
 
                             <div class="footer">
-                                <a class="btn btn-primary btn-round btn-block">SIGN IN</a>
+                                <a onclick="signIn()" class="btn btn-primary btn-round btn-block">SIGN IN</a>
                                 {{-- <a href="sign-up.html" class="btn btn-primary btn-simple btn-round btn-block">SIGN
                                     UP</a> --}}
                             </div>
@@ -59,6 +69,46 @@
     <!-- Jquery Core Js -->
     <script src="{{ asset('adminDashboard') }}/bundles/libscripts.bundle.js"></script>
     <script src="{{ asset('adminDashboard') }}/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+    <script src="{{ asset('adminDashboard/js/axios.min.js') }}"></script>
+    <script src="{{ asset('adminDashboard/js/config.js') }}"></script>
+    <script src="{{ asset('adminDashboard/js/toastify-js.js') }}"></script>
+    <script>
+        async function signIn() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById("password").value;
+
+            if (email == "" && password == "") {
+                errorToast("Please enter your email and password.");
+            } else if (email == "") {
+                errorToast("Please enter your email.");
+            } else if (password == "") {
+                errorToast("Please enter your password.");
+            } else {
+                const re =
+                    /^(?:(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*")|(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*))@(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:(?:[ -~]|\\[^\r\n])*)\])$/;
+                if (!re.test(email)) {
+                    errorToast("Please enter a valid email.");
+                } else {
+                    showLoader();
+                    const response = await axios.post("{{ route('auth.signin') }}", {
+                        email: email,
+                        password: password
+                    });
+                    hideLoader();
+
+                    if (response.data.status == "success") {
+                        successToast(response.data.message);
+                        setTimeout(() => {
+                            window.location.href = response.data.url;
+                        }, 1000);
+                    } else {
+                        // errorToast(response.data.message);
+                        errorToast(response.data['message']);
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
