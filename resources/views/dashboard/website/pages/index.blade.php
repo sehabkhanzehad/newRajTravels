@@ -6,6 +6,7 @@
 
             @include('dashboard.components.common.breadcrumb', [
                 'title' => 'Home',
+                'route' => route('dashboard.website.home'),
                 'path' => 'Website',
             ])
 

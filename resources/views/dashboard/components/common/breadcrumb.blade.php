@@ -3,9 +3,9 @@
         <div class="col-lg-5 col-md-5 col-sm-12">
             <h2>{{ $title }}</h2>
             <ul class="breadcrumb padding-0">
-                <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}"><i class="zmdi zmdi-home"></i></a></li>
                 @if(isset($path))
-                <li class="breadcrumb-item"><a href="javascript:void(0);">{{ $path }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ $route }}">{{ $path }}</a></li>
                 @endif
                 <li class="breadcrumb-item active">{{ $title }}</li>
             </ul>

@@ -2,7 +2,7 @@
     <ul class="menu_list">
         <li>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="index.html"><img src="{{ asset('adminDashboard') }}/images/logo.svg"
+            <a class="navbar-brand" href="{{ route('dashboard.home') }}"><img src="{{ asset('adminDashboard') }}/images/logo.svg"
                     alt="Alpino"></a>
         </li>
         <li><a href="javascript:void(0);" class="btn_overlay hidden-sm-down"><i class="zmdi zmdi-search"></i></a>

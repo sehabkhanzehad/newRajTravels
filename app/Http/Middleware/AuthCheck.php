@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Helper\JWTToken;
+use App\Helpers\JWTToken;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;

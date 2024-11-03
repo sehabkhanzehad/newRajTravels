@@ -2,30 +2,19 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Helper\JWTToken;
+use App\Helpers\JWTToken;
 use App\Http\Controllers\Controller;
 use App\Models\dashboard\Admin;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function showDashboardPage()
+    public function showDashboardPage(Request $request)
     {
-        return view('dashboard.pages.index');
+        return view('dashboard.pages.index', [
+            // "user" => Admin::where('id', $request->header('id'))->where('email', $request->header('email'))->first()
+        ]);
     }
 
-    public function adminInfo(Request $request)
-    {
-        $signInToken =  $request->cookie('signInToken');
-        $result = JWTToken::decodeToken($signInToken);
-        $adminId = $result->id;
-        $adminEmail = $result->email;
-        $admin = Admin::where('id', $adminId)->where('email', $adminEmail)->first();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Admin information fetched successfully.',
-            'data' => $admin
-        ], 200);
-    }
 }

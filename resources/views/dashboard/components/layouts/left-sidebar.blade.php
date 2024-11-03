@@ -4,25 +4,28 @@
             <li>
                 <div class="user-info m-b-20">
                     <div class="image">
-                        <a href="profile.html"><img src="{{ asset('adminDashboard') }}/images/profile_av.jpg"
+                        <a href="javascript:void(0);">
+                            <img src="{{ adminInfo()->image != null ? asset(adminInfo()->image) : 'https://ui-avatars.com/api/?name=' . adminInfo()->name . '&color=7F9CF5&background=EBF4FF' }}"
                                 alt="User"></a>
                     </div>
                     <div class="detail">
-                        <h6 id ="adminName"></h6>
-                        <p class="m-b-0" id ="adminEmail"></p>
-                        <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
+                        <h6 id ="adminName">{{ adminInfo()->name }}</h6>
+                        <p class="m-b-0" id ="adminEmail">{{ adminInfo()->email }}</p>
+                        {{-- <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                 class="zmdi zmdi-facebook-box"></i></a>
                         <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                 class="zmdi zmdi-linkedin-box"></i></a>
                         <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                 class="zmdi zmdi-instagram"></i></a>
                         <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
-                                class="zmdi zmdi-twitter-box"></i></a>
+                                class="zmdi zmdi-twitter-box"></i></a> --}}
                     </div>
                 </div>
             </li>
             <li class="header">MAIN</li>
-            <li class="active open"> <a href="index.html"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+            <li class="{{ Route::is('dashboard.home') ? 'active' : '' }} open">
+                <a href="{{ route('dashboard.home') }}" class="centered-link"><i
+                    class="material-icons">dashboard</i><span>Dashboard</span></a></li>
             </li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span>
                     <span class="badge badge-success float-right">7</span></a>
@@ -150,7 +153,7 @@
 </div>
 
 
-@if (Route::is('website.*'))
+@if (Route::is('dashboard.website.*'))
     <div id="leftsidebar" class="sidebar">
         <div class="menu">
             <ul class="list">
@@ -161,8 +164,8 @@
                                     alt="User"></a>
                         </div>
                         <div class="detail">
-                            <h6>Michael</h6>
-                            <p class="m-b-0">info@example.com</p>
+                            <h6>{{ adminInfo()->name }}</h6>
+                            <p class="m-b-0">{{ adminInfo()->email }}</p>
                             <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                     class="zmdi zmdi-facebook-box"></i></a>
                             <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
@@ -174,12 +177,17 @@
                         </div>
                     </div>
                 </li>
-                {{-- <li class="header">MAIN</li>
-                <li class="active open"> <a href="index.html"><i
-                            class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+                <li class="header">MAIN</li>
+                <li class="open">
+                    <a href="{{ route('dashboard.home') }}" class="centered-link"><i
+                        class="material-icons">dashboard</i><span>Dashboard</span></a></li>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span>
-                        <span class="badge badge-success float-right">7</span></a>
+                <li class="{{ Route::is('dashboard.website.home') ? 'active' : '' }} open">
+                    <a href="{{ route('dashboard.website.home') }}" class="centered-link"><i
+                            class="material-icons">web</i><span>Website</span></a></li>
+
+                    <li><a href="javascript:void(0);" class="menu-toggle centered-link">
+                            <i class="material-icons">home</i><span>Home</span></a>
                     <ul class="ml-menu">
                         <li><a href="mail-inbox.html">Inbox</a></li>
                         <li><a href="chat.html">Chat</a></li>
@@ -190,7 +198,7 @@
                         <li><a href="app-ticket.html">Support Ticket</a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>UI
+                {{--   <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>UI
                             Elements</span> <span class="badge badge-default float-right">15</span></a>
                     <ul class="ml-menu">
                         <li><a href="ui_kit.html">UI KIT</a></li>

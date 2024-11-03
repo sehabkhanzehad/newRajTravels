@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Helper\JWTToken;
+use App\Helpers\JWTToken;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\dashboard\Admin;

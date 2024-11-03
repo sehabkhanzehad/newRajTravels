@@ -14,5 +14,11 @@
 
     <link rel="stylesheet" href="{{ asset('adminDashboard/css/progress.css') }}">
     <link rel="stylesheet" href="{{ asset('adminDashboard/css/toastify.min.css') }}">
+    <style>
+        .centered-link {
+            display: flex !important;
+            align-items: center !important;
+        }
+    </style>
     @yield('css')
 </head>

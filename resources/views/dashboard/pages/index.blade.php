@@ -682,23 +682,3 @@
         </div>
     </section>
 @endsection
-
-@section("scripts")
-<script>
-    getAdminInfo();
-
-    async function getAdminInfo() {
-        try {
-            showLoader();
-            const response = await axios.get("{{ route('dashboard.admin-info') }}");
-            hideLoader();
-            document.getElementById('adminName').innerText = response.data.data.name;
-            document.getElementById('adminEmail').innerText = response.data.data.email;
-            console.log(response.data.data.email);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-</script>
-@endsection

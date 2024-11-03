@@ -12,7 +12,7 @@
             <div class="indeterminate"></div>
         </div>
     </div>
-    
+
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -119,7 +119,12 @@
                     </div>
                     <div class="body">
                         <ul class="list-unstyled menu">
-                            <li><a href="events.html"><i class="zmdi zmdi-calendar-note"></i><span>Calendar</span></a>
+                            <li><a
+                                href="{{ route('dashboard.website.home') }}" class="centered-link"><i
+                                    class="material-icons">web</i><span>Website</span></a></li>
+
+
+                            <li><a href="{{ route('dashboard.website.home') }}"><i class="zmdi zmdi-calendar-note"></i><span>Calendar</span></a>
                             </li>
                             <li><a href="file-dashboard.html"><i class="zmdi zmdi-file-text"></i><span>File
                                         Manager</span></a></li>
