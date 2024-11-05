@@ -1,6 +1,8 @@
 <?php
 
 return [
+    // Title
+    'home' => 'Home',
     // Navbar
     'aboutUs' => 'About Us',
     'services' => 'Services',

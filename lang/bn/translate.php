@@ -1,6 +1,8 @@
 <?php
 
 return [
+    // Title
+    'home' => 'হোম',
     // Navbar
     'aboutUs' => 'আমাদের সম্পর্কে',
     'services' => 'সেবা',
