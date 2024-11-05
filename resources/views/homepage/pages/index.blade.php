@@ -16,16 +16,12 @@
 
                         </video> --}}
                         <video id="myVideo" loop muted autoplay style="filter: blur(1px)">
-                            {{-- <source src="{{ asset('userHomepage/videos/labbaik1.mp4') }}" type="video/mp4">
-                            <source src="{{ asset('userHomepage/videos/labbaik2.mp4') }}" type="video/mp4">
-                            <source src="{{ asset('userHomepage/videos/labbaik3.mp4') }}" type="video/mp4"> --}}
                             {{-- <source src="{{ asset('userHomepage/videos/labbaik4.mp4') }}" type="video/mp4"> --}}
-                            {{-- <source src="{{ asset('userHomepage/videos/labbaik5.mp4') }}" type="video/mp4"> --}}
-                            <source src="{{ asset('userHomepage/videos/video3.mp4') }}" type="video/mp4">
+                            <source src="{{ asset('userHomepage/videos/video2.mp4') }}" type="video/mp4">
 
                         </video>
                     </div>
-
+{{-- #81c83c --}}
 
 
                     <div class="container h-100">
