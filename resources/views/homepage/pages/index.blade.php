@@ -1,4 +1,5 @@
 @extends('homepage.layouts.main')
+@section("pageTitle", "Home | M/S Raj Travels")
 @section('content')
     <!-- Slider start -->
     <section class="hero-slider text-center">

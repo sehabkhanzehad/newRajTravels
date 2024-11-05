@@ -46,11 +46,9 @@
     <link href="{{ asset('userHomepage') }}/css/style.css" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="icon" href="{{ asset('userHomepage') }}/img/favicon/favicon-32x32.html" type="image/x-icon" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-        href="{{ asset('userHomepage') }}/img/favicon/favicon-144x144.html">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-        href="{{ asset('userHomepage') }}/img/favicon/favicon-72x72.html">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('userHomepage') }}/img/favicon/favicon-54x54.html">
+    {{-- <link rel="icon" href="{{ asset('use') }}" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('userHomepage') }}/img/favicon/favicon-144x144.html">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('userHomepage') }}/img/favicon/favicon-72x72.html">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('userHomepage') }}/img/favicon/favicon-54x54.html"> --}}
 
 </head>
