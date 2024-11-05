@@ -3,8 +3,18 @@
 use App\Http\Controllers\dashboard\AuthController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\homepage\HomepageController;
+use App\Http\Controllers\homepage\LanguageController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/lang/{locale}', [LanguageController::class, 'switchLanguage'])->name('lang.switch');
+
+
+
+
+Route::group(['as' => 'homepage.'], function () {
+    Route::get("/", [HomepageController::class, "index"] )->name("index");
+    Route::post("/search", action: [HomepageController::class, "search"])->name("search");
+});
 
 
 
