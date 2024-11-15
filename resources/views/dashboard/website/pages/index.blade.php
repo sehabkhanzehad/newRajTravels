@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 @section('pageTitle', 'Website Settings')
 @section('content')
-    <section class="content file_manager">
+    <section class="content">
         <div class="container-fluid">
 
             @include('dashboard.components.common.breadcrumb', [

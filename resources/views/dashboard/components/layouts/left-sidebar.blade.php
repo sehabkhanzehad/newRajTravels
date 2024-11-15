@@ -25,10 +25,16 @@
             <li class="header">MAIN</li>
             <li class="{{ Route::is('dashboard.home') ? 'active' : '' }} open">
                 <a href="{{ route('dashboard.home') }}" class="centered-link"><i
-                    class="material-icons">dashboard</i><span>Dashboard</span></a></li>
+                        class="material-icons">dashboard</i><span>Dashboard</span></a>
             </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span>
-                    <span class="badge badge-success float-right">7</span></a>
+            {{-- <li class="active open"> <a href="index.html" class=""><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li> --}}
+            {{-- <li>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="zmdi zmdi-apps"></i>
+                    <span>App</span>
+                    <span class="badge badge-success float-right">7</span>
+                </a>
+
                 <ul class="ml-menu">
                     <li><a href="mail-inbox.html">Inbox</a></li>
                     <li><a href="chat.html">Chat</a></li>
@@ -38,8 +44,8 @@
                     <li><a href="blog-dashboard.html">Blog</a></li>
                     <li><a href="app-ticket.html">Support Ticket</a></li>
                 </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>UI
+            </li> --}}
+            {{-- <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>UI
                         Elements</span> <span class="badge badge-default float-right">15</span></a>
                 <ul class="ml-menu">
                     <li><a href="ui_kit.html">UI KIT</a></li>
@@ -58,8 +64,8 @@
                     <li><a href="tabs.html">Tabs</a></li>
                     <li><a href="waves.html">Waves</a></li>
                 </ul>
-            </li>
-            <li class="header">FORMS, CHARTS, TABLES</li>
+            </li> --}}
+            {{-- <li class="header">FORMS, CHARTS, TABLES</li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Forms</span>
                     <span class="badge badge-warning float-right">9</span></a>
                 <ul class="ml-menu">
@@ -95,8 +101,8 @@
                     <li><a href="jquery-knob.html">Jquery Knob</a></li>
                     <li><a href="chart-e.html">E Chart</a></li>
                 </ul>
-            </li>
-            <li class="header">EXTRA COMPONENTS</li>
+            </li> --}}
+            {{-- <li class="header">EXTRA COMPONENTS</li>
             <li><a href="javascript:void(0);" class="menu-toggle"><i
                         class="zmdi zmdi-delicious"></i><span>Widgets</span> <span
                         class="badge badge-default float-right">3</span></a>
@@ -147,7 +153,7 @@
                     <li><a href="yandex.html">YandexMap</a></li>
                     <li><a href="jvectormap.html">jVectorMap</a></li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>
@@ -166,38 +172,40 @@
                         <div class="detail">
                             <h6>{{ adminInfo()->name }}</h6>
                             <p class="m-b-0">{{ adminInfo()->email }}</p>
-                            <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
+                            {{-- <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                     class="zmdi zmdi-facebook-box"></i></a>
                             <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                     class="zmdi zmdi-linkedin-box"></i></a>
                             <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
                                     class="zmdi zmdi-instagram"></i></a>
                             <a href="javascript:void(0);" title="" class=" waves-effect waves-block"><i
-                                    class="zmdi zmdi-twitter-box"></i></a>
+                                    class="zmdi zmdi-twitter-box"></i></a> --}}
                         </div>
                     </div>
                 </li>
                 <li class="header">MAIN</li>
                 <li class="open">
                     <a href="{{ route('dashboard.home') }}" class="centered-link"><i
-                        class="material-icons">dashboard</i><span>Dashboard</span></a></li>
+                            class="material-icons">dashboard</i><span>Dashboard</span></a>
+                </li>
                 </li>
                 <li class="{{ Route::is('dashboard.website.home') ? 'active' : '' }} open">
                     <a href="{{ route('dashboard.website.home') }}" class="centered-link"><i
-                            class="material-icons">web</i><span>Website</span></a></li>
+                            class="material-icons">web</i><span>Website</span></a>
+                </li>
+                <li class="{{ Route::is('dashboard.website.packages') ? 'active' : '' }} open">
+                    <a href="{{ route('dashboard.website.packages') }}" class="centered-link"><i
+                            class="material-icons">web</i><span>Packages</span></a>
+                </li>
 
-                    <li><a href="javascript:void(0);" class="menu-toggle centered-link">
-                            <i class="material-icons">home</i><span>Home</span></a>
+                {{-- <li><a href="javascript:void(0);" class="menu-toggle centered-link">
+                        <i class="material-icons">home</i><span>Home</span></a>
                     <ul class="ml-menu">
                         <li><a href="mail-inbox.html">Inbox</a></li>
                         <li><a href="chat.html">Chat</a></li>
-                        <li><a href="events.html">Calendar</a></li>
-                        <li><a href="file-dashboard.html">File Manager</a></li>
-                        <li><a href="contact.html">Contact list</a></li>
-                        <li><a href="blog-dashboard.html">Blog</a></li>
-                        <li><a href="app-ticket.html">Support Ticket</a></li>
+
                     </ul>
-                </li>
+                </li> --}}
                 {{--   <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>UI
                             Elements</span> <span class="badge badge-default float-right">15</span></a>
                     <ul class="ml-menu">

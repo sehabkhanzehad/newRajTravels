@@ -69,7 +69,10 @@ return [
     'developed' => 'Developed by',
     'developerNmae' => 'Zehad',
 
-
+    // Package
+    'packageHeading' => 'Packages',
+    'packageTitle' => 'We Love to Work with Passion',
+    'seeMore' => 'See More',
 
 
     // 'signIn' => 'Sign In',

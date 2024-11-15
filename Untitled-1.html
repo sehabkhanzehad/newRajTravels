@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Package Features</title>
+    <style>
+        .feature-list { margin-top: 10px; }
+        .feature-item { margin: 5px 0; }
+    </style>
+</head>
+<body>
+
+<h2>Add Package Features</h2>
+
+<!-- Feature input field -->
+<input type="text" id="featureInput" placeholder="Enter feature">
+<button onclick="addFeature()">Add Feature</button>
+
+<!-- List of features added -->
+<div class="feature-list" id="featureList"></div>
+
+<!-- Hidden form field to submit all features -->
+<form action="/save-features" method="POST">
+    @csrf
+    <input type="hidden" id="features" name="features">
+    <button type="submit">Save Features</button>
+</form>
+
+<script>
+    let features = [];
+
+    function addFeature() {
+        // Get the feature input value
+        const featureInput = document.getElementById('featureInput');
+        const featureValue = featureInput.value.trim();
+
+        // Check if the input is not empty
+        if (featureValue) {
+            // Add the feature to the array
+            features.push(featureValue);
+
+            // Clear the input
+            featureInput.value = '';
+
+            // Update the hidden input field with the JSON string
+            document.getElementById('features').value = JSON.stringify(features);
+
+            // Display the features
+            displayFeatures();
+        } else {
+            alert('Please enter a feature.');
+        }
+    }
+
+    function displayFeatures() {
+        const featureList = document.getElementById('featureList');
+        featureList.innerHTML = '';
+
+        features.forEach((feature, index) => {
+            const featureItem = document.createElement('div');
+            featureItem.className = 'feature-item';
+            featureItem.innerText = `${index + 1}. ${feature}`;
+            featureList.appendChild(featureItem);
+        });
+    }
+</script>
+
+</body>
+</html>

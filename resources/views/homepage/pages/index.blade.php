@@ -1,5 +1,5 @@
 @extends('homepage.layouts.main')
-@section("pageTitle", "Home | M/S Raj Travels")
+@section('pageTitle', 'Home | M/S Raj Travels')
 @section('content')
     <!-- Slider start -->
     <section class="hero-slider text-center">
@@ -21,7 +21,7 @@
 
                         </video>
                     </div>
-{{-- #81c83c --}}
+                    {{-- #81c83c --}}
 
 
                     <div class="container h-100">
@@ -248,7 +248,8 @@
             <div class="row">
                 <div class="col-md-12 heading">
                     <span class="title-icon float-left"><i class="fa fa-cogs"></i></span>
-                    <h2 class="title">{{__('translate.serviceHeading')}} <span class="title-desc mt-2">{{ __('translate.serviceTitle') }}</span></h2>
+                    <h2 class="title">{{ __('translate.serviceHeading') }} <span
+                            class="title-desc mt-2">{{ __('translate.serviceTitle') }}</span></h2>
                 </div>
             </div><!-- Title row end -->
             {{-- <i class="fas fa-kaaba"></i> --}}
@@ -679,6 +680,110 @@
         </div>
     </section> --}}
     <!--/ Image block end -->
+    <!-- Pricing table start -->
+    @if (count($packages) > 0)
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 heading">
+                    <span class="title-icon float-left"><i class="fa fa-list-ul"></i></span>
+                    <h2 class="title">{{ __('translate.packageHeading') }} <span class="title-desc mt-2">{{ __('translate.packageTitle') }}</span>
+                    </h2>
+                </div>
+            </div><!-- Title row end -->
+            <div class="row">
+                {{-- <!-- plan start -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="plan text-center">
+                        <span class="plan-name">Basic <small>Monthly plan</small></span>
+                        <p class="plan-price"><sup class="currency">$</sup><strong>49</strong><sub>.99</sub></p>
+                        <ul class="list-unstyled">
+                            <li>100GB Monthly Bandwidth</li>
+                            <li>$100 Google AdWords</li>
+                            <li>100 Domain Hosting</li>
+                            <li>SSL Shopping Cart</li>
+                            <li>24/7 Live Support</li>
+                        </ul>
+                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
+                    </div>
+                </div><!-- plan end -->
+                <!-- plan start -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="1s">
+                    <div class="plan text-center">
+                        <span class="plan-name">Standared <small>Monthly plan</small></span>
+                        <p class="plan-price"><sup class="currency">$</sup><strong>99</strong><sub>.99</sub></p>
+                        <ul class="list-unstyled">
+                            <li>100GB Monthly Bandwidth</li>
+                            <li>$100 Google AdWords</li>
+                            <li>100 Domain Hosting</li>
+                            <li>SSL Shopping Cart</li>
+                            <li>24/7 Live Support</li>
+                        </ul>
+                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
+                    </div>
+                </div><!-- plan end -->
+                <!-- plan start -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="1.4s">
+                    <div class="plan text-center featured">
+                        <span class="plan-name">Professional <small>Monthly plan</small></span>
+                        <p class="plan-price"><sup class="currency">$</sup><strong>149</strong><sub>.99</sub></p>
+                        <ul class="list-unstyled">
+                            <li>100GB Monthly Bandwidth</li>
+                            <li>$100 Google AdWords</li>
+                            <li>100 Domain Hosting</li>
+                            <li>SSL Shopping Cart</li>
+                            <li>24/7 Live Support</li>
+                        </ul>
+                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
+                    </div>
+                </div><!-- plan end -->
+                <!-- plan start -->
+                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="1.6s">
+                    <div class="plan text-center">
+                        <span class="plan-name">Premium <small>Monthly plan</small></span>
+                        <p class="plan-price"><sup class="currency">$</sup><strong>399</strong><sub>.99</sub></p>
+                        <ul class="list-unstyled">
+                            <li>100GB Monthly Bandwidth</li>
+                            <li>$100 Google AdWords</li>
+                            <li>100 Domain Hosting</li>
+                            <li>SSL Shopping Cart</li>
+                            <li>24/7 Live Support</li>
+                        </ul>
+                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
+                    </div>
+                </div><!-- plan end --> --}}
+
+                @foreach ($packages as $package)
+                    <!-- plan start -->
+                    <div class="col-lg-4 col-md-6 wow fadeInUp m-auto" data-wow-delay="{{ 1 + ($loop->index * 0.5) }}s">
+                        <div class="plan text-center {{ $package->is_featured == 'yes' ? 'featured' : '' }}">
+                            <span class="plan-name">{{ $package->package_name }} ({{ $package->year }})
+                                <small>{{ $package->package_duration }}</small></span>
+                            <p class="plan-price"
+                            {{-- style="background-image: url('{{ $package->package_image }}'); background-size: cover;" --}}
+                            >
+                            @php
+                                // $package->package_price = number_format($package->package_price, 2);
+                            @endphp
+                            <sup class="currency">{{ app()->getLocale() == 'bn' ? '৳' : 'Tk' }}</sup><strong>{{ explode('.', $package->package_price)[0] }}</strong><sub>.{{ explode('.', $package->package_price)[1] }}</sub></p>
+
+                            <ul class="list-unstyled">
+                                @foreach ($package->features as $feature)
+                                    <li>{{ $feature }}</li>
+                                @endforeach
+                            </ul>
+                            <a class="btn btn btn-outline-primary" href="{{ route('homepage.package.show', $package->slug) }}">{{ __('translate.seeMore') }}</a>
+                        </div>
+                    </div>
+                    <!-- plan end -->
+                @endforeach
+            </div>
+            <!--/ Content row end -->
+        </div>
+        <!--/  Container end-->
+    </section>
+    @endif
+    <!--/ Pricing table end -->
 
 
     <!-- Team start -->
@@ -687,7 +792,8 @@
             <div class="row">
                 <div class="col-md-12 heading">
                     <span class="title-icon float-left"><i class="fa fa-weixin"></i></span>
-                    <h2 class="title">{{ __('translate.teamHeading') }} <span class="title-desc mt-2">{{ __('translate.teamTitle') }}</span></h2>
+                    <h2 class="title">{{ __('translate.teamHeading') }} <span
+                            class="title-desc mt-2">{{ __('translate.teamTitle') }}</span></h2>
                 </div>
             </div><!-- Title row end -->
 
@@ -704,8 +810,9 @@
                             <p>{{ __('translate.team1Position') }}</p>
                             <div class="team-social">
                                 <a class="fb" href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
-                                <a class="gplus" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>                               
-                                <a class="linkdin" target="_blank" href="https://wa.me/+8801761788306"><i class="fa fa-whatsapp"></i></a>
+                                <a class="gplus" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>
+                                <a class="linkdin" target="_blank" href="https://wa.me/+8801761788306"><i
+                                        class="fa fa-whatsapp"></i></a>
                                 <a class="dribble" href="javascript:void(0)"><i class="fa fa-dribbble"></i></a>
                             </div>
                         </div>
@@ -723,9 +830,12 @@
                             <h3>{{ __('translate.team2Name') }}</h3>
                             <p>{{ __('translate.team2Position') }}</p>
                             <div class="team-social">
-                                <a class="fb" target="_blank" href="https://www.facebook.com/profile.php?id=61550204040888"><i class="fa fa-facebook"></i></a>
-                                <a class="gplus" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>                               
-                                <a class="linkdin" target="_blank" href="https://wa.me/+8801733111463"><i class="fa fa-whatsapp"></i></a>
+                                <a class="fb" target="_blank"
+                                    href="https://www.facebook.com/profile.php?id=61550204040888"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a class="gplus" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>
+                                <a class="linkdin" target="_blank" href="https://wa.me/+8801733111463"><i
+                                        class="fa fa-whatsapp"></i></a>
                                 <a class="dribble" href="javascript:void(0)"><i class="fa fa-dribbble"></i></a>
                             </div>
                         </div>
@@ -741,12 +851,16 @@
                         </div>
                         <div class="team-content">
                             <h3>{{ __('translate.team3Name') }}</h3>
-                            <p>{{{ __('translate.team3Position') }}}</p>
+                            <p>{{ __('translate.team3Position') }}</p>
                             <div class="team-social">
-                                <a class="fb" href="https://www.facebook.com/abdulajij.cb1" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a class="gplus" href="https://www.instagram.com/abdulajij.cb/" target="_blank"><i class="fa fa-instagram"></i></a>
-                                <a class="linkdin" href="https://wa.me/+8801799745020" traget="_blank"><i class="fa fa-whatsapp"></i></a>
-                                <a class="dribble" href="hhttps://abdulajij.msrajtravels.com/" target="_blank"><i class="fa fa-dribbble"></i></a>
+                                <a class="fb" href="https://www.facebook.com/abdulajij.cb1" target="_blank"><i
+                                        class="fa fa-facebook"></i></a>
+                                <a class="gplus" href="https://www.instagram.com/abdulajij.cb/" target="_blank"><i
+                                        class="fa fa-instagram"></i></a>
+                                <a class="linkdin" href="https://wa.me/+8801799745020" traget="_blank"><i
+                                        class="fa fa-whatsapp"></i></a>
+                                <a class="dribble" href="hhttps://abdulajij.msrajtravels.com/" target="_blank"><i
+                                        class="fa fa-dribbble"></i></a>
                             </div>
                         </div>
                     </div>
@@ -764,7 +878,7 @@
                             <p>{{ __('translate.team4Position') }}</p>
                             <div class="team-social">
                                 <a class="fb" href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
-                                <a class="gplus" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>                               
+                                <a class="gplus" href="javascript:void(0)"><i class="fa fa-instagram"></i></a>
                                 <a class="linkdin" href="javascript:void(0)"><i class="fa fa-whatsapp"></i></a>
                                 <a class="dribble" href="javascript:void(0)"><i class="fa fa-dribbble"></i></a>
                             </div>
@@ -798,86 +912,9 @@
     <!-- Parallax 1 end -->
 
 
-    <!-- Pricing table start -->
-    {{-- <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 heading">
-                    <span class="title-icon float-left"><i class="fa fa-university"></i></span>
-                    <h2 class="title">Pricing Table <span class="title-desc">We Love to Work with Passion</span>
-                    </h2>
-                </div>
-            </div><!-- Title row end -->
-            <div class="row">
-                <!-- plan start -->
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".5s">
-                    <div class="plan text-center">
-                        <span class="plan-name">Basic <small>Monthly plan</small></span>
-                        <p class="plan-price"><sup class="currency">$</sup><strong>49</strong><sub>.99</sub></p>
-                        <ul class="list-unstyled">
-                            <li>100GB Monthly Bandwidth</li>
-                            <li>$100 Google AdWords</li>
-                            <li>100 Domain Hosting</li>
-                            <li>SSL Shopping Cart</li>
-                            <li>24/7 Live Support</li>
-                        </ul>
-                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
-                    </div>
-                </div><!-- plan end -->
 
-                <!-- plan start -->
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="1s">
-                    <div class="plan text-center">
-                        <span class="plan-name">Standared <small>Monthly plan</small></span>
-                        <p class="plan-price"><sup class="currency">$</sup><strong>99</strong><sub>.99</sub></p>
-                        <ul class="list-unstyled">
-                            <li>100GB Monthly Bandwidth</li>
-                            <li>$100 Google AdWords</li>
-                            <li>100 Domain Hosting</li>
-                            <li>SSL Shopping Cart</li>
-                            <li>24/7 Live Support</li>
-                        </ul>
-                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
-                    </div>
-                </div><!-- plan end -->
 
-                <!-- plan start -->
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="1.4s">
-                    <div class="plan text-center featured">
-                        <span class="plan-name">Professional <small>Monthly plan</small></span>
-                        <p class="plan-price"><sup class="currency">$</sup><strong>149</strong><sub>.99</sub></p>
-                        <ul class="list-unstyled">
-                            <li>100GB Monthly Bandwidth</li>
-                            <li>$100 Google AdWords</li>
-                            <li>100 Domain Hosting</li>
-                            <li>SSL Shopping Cart</li>
-                            <li>24/7 Live Support</li>
-                        </ul>
-                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
-                    </div>
-                </div><!-- plan end -->
 
-                <!-- plan start -->
-                <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay="1.6s">
-                    <div class="plan text-center">
-                        <span class="plan-name">Premium <small>Monthly plan</small></span>
-                        <p class="plan-price"><sup class="currency">$</sup><strong>399</strong><sub>.99</sub></p>
-                        <ul class="list-unstyled">
-                            <li>100GB Monthly Bandwidth</li>
-                            <li>$100 Google AdWords</li>
-                            <li>100 Domain Hosting</li>
-                            <li>SSL Shopping Cart</li>
-                            <li>24/7 Live Support</li>
-                        </ul>
-                        <a class="btn btn-outline-primary" href="#.">Sign Up</a>
-                    </div>
-                </div><!-- plan end -->
-            </div>
-            <!--/ Content row end -->
-        </div>
-        <!--/  Container end-->
-    </section> --}}
-    <!--/ Pricing table end -->
 
 
     <!-- Testimonial start-->
@@ -948,42 +985,49 @@
                 <div id="client-carousel" class="col-sm-12 owl-carousel owl-theme text-center client-carousel">
                     <figure class="m-0 item client_logo">
                         <a href="https://hajj.gov.bd/" target="_blank">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client1.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client1.png" alt="client">
                         </a>
                     </figure>
                     <figure class="m-0 item client_logo">
                         <a href="https://haabbd.com/" target="_blank">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client2.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client2.png" alt="client">
                         </a>
                     </figure>
                     <figure class="m-0 item client_logo">
                         <a href="https://www.atab.org.bd/" target="_blank">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client3.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client3.png" alt="client">
                         </a>
                     </figure>
                     <figure class="m-0 item client_logo">
                         <a href="https://www.iata.org/" target="_blank">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client4.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client4.png" alt="client">
                         </a>
                     </figure>
                     <figure class="m-0 item client_logo">
                         <a href="https://www.nusuk.sa/" target="_blank">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client5.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client5.png" alt="client">
                         </a>
                     </figure>
                     {{-- <figure class="m-0 item client_logo">
-                        <a href="#" target="_blank"> 
+                        <a href="#" target="_blank">
                             <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client6.png" alt="client">
                         </a>
                     </figure> --}}
                     <figure class="m-0 item client_logo">
                         <a href="javascript:void(0);">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client7.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client7.png" alt="client">
                         </a>
                     </figure>
                     <figure class="m-0 item client_logo">
                         <a href="javascript:void(0);">
-                            <img style="height: 75px; width: 75px" src="{{ asset('userHomepage') }}/images/clients/client8.png" alt="client">
+                            <img style="height: 75px; width: 75px"
+                                src="{{ asset('userHomepage') }}/images/clients/client8.png" alt="client">
                         </a>
                     </figure>
                 </div><!-- Owl carousel end -->

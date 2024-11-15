@@ -14,13 +14,13 @@
     </div>
 
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
+    {{-- <div class="page-loader-wrapper">
         <div class="loader">
             <div class="m-t-30"><img src="{{ asset('adminDashboard') }}/images/logo.svg" width="48" height="48"
                     alt="Alpino"></div>
             <p>Please wait...</p>
         </div>
-    </div>
+    </div> --}}
 
     <div class="overlay_menu">
         <button class="btn btn-primary btn-icon btn-icon-mini btn-round"><i class="zmdi zmdi-close"></i></button>
@@ -124,7 +124,7 @@
                                     class="material-icons">web</i><span>Website</span></a></li>
 
 
-                            <li><a href="{{ route('dashboard.website.home') }}"><i class="zmdi zmdi-calendar-note"></i><span>Calendar</span></a>
+                            {{-- <li><a href="{{ route('dashboard.website.home') }}"><i class="zmdi zmdi-calendar-note"></i><span>Calendar</span></a>
                             </li>
                             <li><a href="file-dashboard.html"><i class="zmdi zmdi-file-text"></i><span>File
                                         Manager</span></a></li>
@@ -133,7 +133,7 @@
                             <li><a href="javascript:void(0)"><i class="zmdi zmdi-arrows"></i><span>Notes</span></a>
                             </li>
                             <li><a href="javascript:void(0)"><i
-                                        class="zmdi zmdi-view-column"></i><span>Taskboard</span></a></li>
+                                        class="zmdi zmdi-view-column"></i><span>Taskboard</span></a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -290,7 +290,7 @@
         <div id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting">Setting</a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity">Activity</a></li>
+                {{-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity">Activity</a></li> --}}
             </ul>
             <div class="tab-content slim_scroll">
                 <div class="tab-pane slideRight active" id="setting">
@@ -324,7 +324,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="header">
                             <h2><strong>General</strong> Settings</h2>
                         </div>
@@ -368,7 +368,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="card">
                         <div class="header">
                             <h2><strong>Left</strong> Menu</h2>

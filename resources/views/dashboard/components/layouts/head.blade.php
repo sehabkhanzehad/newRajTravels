@@ -14,11 +14,22 @@
 
     <link rel="stylesheet" href="{{ asset('adminDashboard/css/progress.css') }}">
     <link rel="stylesheet" href="{{ asset('adminDashboard/css/toastify.min.css') }}">
+
+    <link href="{{ asset('adminDashboard') }}/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('adminDashboard') }}/plugins/jquery-spinner/css/bootstrap-spinner.css">
+    <link rel="stylesheet" href="{{ asset('adminDashboard') }}/plugins/summernote/dist/summernote.css"/>
+    <link rel="stylesheet" href="{{ asset('adminDashboard') }}/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+
     <style>
         .centered-link {
             display: flex !important;
             align-items: center !important;
+            /* justify-content: center !important; */
+            /* text-align: center !important; */
+
         }
     </style>
+
+
     @yield('css')
 </head>

@@ -14,4 +14,23 @@
  <script src="{{ asset('adminDashboard/js/axios.min.js') }}"></script>
  <script src="{{ asset('adminDashboard/js/config.js') }}"></script>
  <script src="{{ asset('adminDashboard/js/toastify-js.js') }}"></script>
+
+
+<!-- Jquery DataTable Plugin Js -->
+<script src="{{ asset('adminDashboard') }}/bundles/datatablescripts.bundle.js"></script>
+
+<script src="{{ asset('adminDashboard') }}/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="{{ asset('adminDashboard') }}/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="{{ asset('adminDashboard') }}/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+<script src="{{ asset('adminDashboard') }}/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="{{ asset('adminDashboard') }}/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
+
+<script src="{{ asset('adminDashboard') }}/js/pages/tables/jquery-datatable.js"></script>
+
+
+
+<script src="{{ asset('adminDashboard') }}/plugins/jquery-spinner/js/jquery.spinner.js"></script> <!-- Jquery Spinner Plugin Js -->
+<script src="{{ asset('adminDashboard') }}/plugins/summernote/dist/summernote.js"></script>
+
+
  @yield('scripts')

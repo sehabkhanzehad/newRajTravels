@@ -70,6 +70,12 @@ return [
     'developerNmae' => 'জিহাদ',
 
 
+    // Package
+    'packageHeading' => 'প্যাকেজ সমূহ',
+    'packageTitle' => 'আমরা উৎসাহের সাথে কাজ করতে ভালবাসি',
+    'seeMore' => 'বিস্তারিত দেখুন',
+
+
     // 'signIn' => 'সাইন ইন',
     // 'signUp' => 'সাইন আপ',
     // 'signOut' => 'সাইন আউট',
