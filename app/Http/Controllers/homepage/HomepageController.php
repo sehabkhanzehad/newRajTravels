@@ -10,7 +10,7 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $packages = Package::where('package_status', 'active')->where('locale', session()->get('locale'))->where('visibility', 'public')->get();
+        $packages = Package::where('package_status', 'active')->where('locale', session()->get('locale') ? session()->get('locale') : 'bn')->where('visibility', 'public')->get();
 
         foreach ($packages as $package) {
             $package->features = json_decode($package->features, true);
