@@ -594,6 +594,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="title" id="defaultModalLabel">Delete Package</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this package?</p>
+                    <input type="hidden" id="deleteId">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-round waves-effect"
+                        onclick="deleteData()">Delete</button>
+                    <button type="button" class="btn btn-simple btn-round waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script>
@@ -606,24 +626,32 @@
 
             let tableList = $("#tableList");
             let tableData = $("#tableData");
+            const editRoute = "{{ route('dashboard.website.packages.edit', ['id' => 'ID_PLACEHOLDER']) }}";
 
             tableData.DataTable().destroy();
             tableList.empty();
 
             respons.data.forEach(function(item, index) {
                 let row = `<tr>
-        <td>${index + 1}</td>
-        <td>${item.package_name}</td>
-        <td> <img src="${item.package_image}" class="rounded-circle wd-35" alt="team"></td>
-        <td>${item.package_type}</td>
-        <td>${item.year}</td>
-        <td>${item.package_price}</td>
-        <td>${item.package_status}</td>
-        <td>
-            <button type="button"class="editBtn btn btn-success" data-no="${item.id}">Edit</button>
-            <button type="button"class="deleteBtn btn btn-danger" data-no="${item.id}">Delete</button>
-        </td>
-    </tr>`;
+                                <td>${index + 1}</td>
+                                <td>${item.package_name}</td>
+                                <td> <img src="${item.package_image}" class="w-50 h-50 rounded" alt="team"></td>
+                                <td>${item.package_type}</td>
+                                <td>${item.year}</td>
+                                <td>${item.package_price}</td>
+                                <td>${item.package_status}</td>
+                                <td>
+                                    <a href="${editRoute.replace('ID_PLACEHOLDER', item.id)}" title="Edit">
+                                        <button class="btn btn-success btn-icon btn-icon-mini">
+                                            <i class="zmdi zmdi-edit"></i>
+                                         </button>
+                                    </a>
+
+                                    <button class="btn btn-danger btn-icon btn-icon-mini deleteBtn" data-no="${item.id}" title="Delete">
+                                        <i class="zmdi zmdi-delete"></i>
+                                    </button>
+                                </td>
+                            </tr>`;
                 tableList.append(row);
             });
 
@@ -636,9 +664,9 @@
             });
 
             $(".deleteBtn").on("click", function() {
-                // let id = $(this).data("no");
-                // $("#deleteModal").modal("show");
-                // $("#deleteId").val(id);
+                let id = $(this).data("no");
+                $("#deleteModal").modal("show");
+                $("#deleteId").val(id);
             });
 
             $('#tableData').DataTable({
@@ -647,6 +675,22 @@
                 // "paging": false
             });
 
+        }
+
+        async function deleteData() {
+            let id = $("#deleteId").val();
+            showLoader();
+            // '/packages/{id}'
+            let url = "{{ route('dashboard.website.packages.delete', ['id' => 'ID_PLACEHOLDER']) }}";
+
+            const response = await axios.delete(url.replace('ID_PLACEHOLDER', id));
+            hideLoader();
+            if (response.data.status == "success") {
+                $("#deleteModal").modal("hide");
+                $("#deleteId").val("");
+                successToast(response.data.message);
+                await getData();
+            }
         }
     </script>
 

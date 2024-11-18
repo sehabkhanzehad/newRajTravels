@@ -232,9 +232,10 @@
                                                 onchange="document.getElementById('blah1').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         <div class="form-group">
-                                            <img src="https://static.vecteezy.com/system/resources/thumbnails/008/695/917/small_2x/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg"
+                                            <img src="https://placehold.co/300x150"
+                                                class="rounded"
                                                 alt="Package Image"
-                                                style="width: 145px; height: 145px; border: 1px solid #a09f9f;"
+                                                style="width: 150px; height: 75px;"
                                                 id="blah1">
                                         </div>
                                     </div>
@@ -330,10 +331,49 @@
             features.forEach((feature, index) => {
                 const featureItem = document.createElement('div');
                 featureItem.className = 'feature-item';
-                featureItem.innerText = `${index + 1}. ${feature}`;
+                featureItem.style.borderBottom = '1px solid #a09f9f';
+                featureItem.style.cursor = 'default';
+                featureItem.innerHTML =
+                    `- ${feature} <span onclick="removeFeature(this, '${feature}')"><i class="zmdi zmdi-delete text-danger float-right" style="cursor: pointer"></i></span>`;
                 featureList.appendChild(featureItem);
             });
         }
+
+        function removeFeature(element, feature) {
+            features = features.filter(f => f !== feature);
+            document.getElementById('features').value = JSON.stringify(features);
+            element.parentElement.remove();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayFeatures();
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
+    <script>
+        // Wait for the DOM to load before initializing Sortable
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make the #feature-list element sortable
+            new Sortable(document.getElementById('featureList'), {
+                animation: 150, // Smooth animation for reordering
+                ghostClass: 'sortable-ghost', // Class to apply to the dragged item
+                dragClass: 'sortable-drag', // Class to apply while dragging
+                onEnd: function(evt) {
+                    // This event is triggered when the drag is finished.
+                    // Update the features array to reflect the new order
+                    const newOrder = [];
+                    const items = evt.from.children;
+                    for (let i = 0; i < items.length; i++) {
+                        newOrder.push(items[i].textContent.trim().slice(
+                        2)); // Capture new order, remove "- " prefix
+                    }
+                    features = newOrder;
+                    document.getElementById('features').value = JSON.stringify(features);
+                }
+            });
+        });
     </script>
     <script>
         $('.summernote').summernote({
@@ -422,37 +462,11 @@
                 formData.append('visibility', visibility);
                 formData.append('slug', slug);
 
-
-
-                // let data = {
-                //     locale,
-                //     package_type,
-                //     month_year,
-                //     package_name,
-                //     currency,
-                //     package_price,
-                //     discount_type,
-                //     package_discount,
-                //     package_duration,
-                //     billing_type,
-                //     start_date,
-                //     end_date,
-                //     package_short_description,
-                //     features,
-                //     package_description,
-                //     package_image,
-                //     package_status,
-                //     visibility,
-                //     slug
-                // };
-
                 const config = {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
                 };
-
-
 
                 showLoader();
                 const response = await axios.post("{{ route('dashboard.website.packages.store') }}", formData, config);

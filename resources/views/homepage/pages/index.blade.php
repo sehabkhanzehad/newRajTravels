@@ -1,28 +1,31 @@
 @extends('homepage.layouts.main')
 @section('pageTitle', 'Home | M/S Raj Travels')
+@section('styles')
+    <style>
+    </style>
+@endsection
 @section('content')
     <!-- Slider start -->
     <section class="hero-slider text-center">
         <div class="slider-inner h-100">
+            {{-- Slider 1 --}}
             <div class="slider-item"
-                data-dot="&lt;i class=&quot;fa fa-video-camera&quot;&gt;&lt;/i&gt; {{ __('translate.hajj') }}">
+                data-dot="&lt;i class=&quot; slider1 fa fa-plane&quot;&gt;&lt;/i&gt; {{ __('translate.hajj') }}">
                 <div class="overlay2">
 
                     <div class="background-video">
-                        {{-- <video loop muted autoplay>
+                        <video id="myVideo" loop muted autoplay
+                        style="
+                        filter: blur(1px);
 
-                            <source src="{{ asset('userHomepage/videos/labbaik1.mp4') }}" type="video/mp4">
-                            <source src="{{ asset('userHomepage/videos/labbaik2.mp4') }}" type="video/mp4">
+                        -webkit-filter: brightness(0.5) contrast(1.2) saturate(0.8);
 
-                        </video> --}}
-                        <video id="myVideo" loop muted autoplay style="filter: blur(1px)">
+                        ">
                             {{-- <source src="{{ asset('userHomepage/videos/labbaik4.mp4') }}" type="video/mp4"> --}}
-                            <source src="{{ asset('userHomepage/videos/video2.mp4') }}" type="video/mp4">
-
+                            <source src="{{ asset('userHomepage/videos/labbaik3.mp4') }}" type="video/mp4">
+                            {{-- <source src="{{ asset('userHomepage/videos/video2.mp4') }}" type="video/mp4"> --}}
                         </video>
                     </div>
-                    {{-- #81c83c --}}
-
 
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
@@ -37,24 +40,14 @@
                                         style="color: ; font-weight: bold; font-size: 20px">{{ __('translate.hajjLicense') }}:
                                         {{ __('translate.licenseNumber') }}</span></h2>
 
-
-
                                 {{-- search form code    --}}
                                 {{-- <form action="" method="GET" class="sign-up-form d-flex bg-white" data-aos="fade-up" data-aos-delay="300">
                                         <input type="text" name="query" class="form-control" placeholder="Search...">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form> --}}
-
-
-
-
-
-
                                 {{-- <a href="#0" class="cd-hero__btn btn btn-outline-primary text-white "
                                     data-duration-in=".5" data-animation-in="fadeInUp" data-delay-in=".5">Learn
                                     more</a> --}}
-
-
                                 {{-- <button class="btn btn-outline-primary" id="unmuteButton">Unmute</button> --}}
 
                                 <div class="col-lg-6 p-0 m-auto">
@@ -80,17 +73,10 @@
                                             </span>
                                         </div>
                                     </form>
-
-
-
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
-
-
 
                     {{-- <div class="container">
                         <div class="row">
@@ -111,36 +97,32 @@
                         </div>
                     </div> --}}
 
-
-
                 </div>
             </div>
-
-            {{-- <div class="slider-item" data-dot="&lt;i class=&quot;fa fa-bicycle&quot;&gt;&lt;/i&gt; Invent"
-                style="background-image: url({{ asset('userHomepage') }}/images/slider/bg1.jpg);">
+            {{-- Slider 2 --}}
+            <div class="slider-item" data-dot="&lt;i class=&quot; slider2 fa fa-paper-plane&quot;&gt;&lt;/i&gt; {{ __('translate.umrah') }}"
+                style="background-image: url({{ asset('userHomepage') }}/images/slider/bg1.jpg); background-size: cover">
                 <div class="overlay2">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
                             <div class="col-12">
-                                <h2 data-duration-in=".3" data-animation-in="fadeInUp">Need To Invent The Future!
-                                </h2>
-                                <h3 class="mb-4" data-duration-in=".4" data-animation-in="fadeInUp" data-delay-in=".4">We
-                                    Making Difference To Great Things Possible</h3>
-                                <div class="button-group">
+                                <h2 data-duration-in=".3" data-animation-in="fadeInUp">{{ __('translate.coverTitle2') }}</h2>
+                                <h3 class="mb-4" data-duration-in=".4" data-animation-in="fadeInUp" data-delay-in=".4">{{ __('translate.shortDes') }}</h3>
+                                {{-- <div class="button-group">
                                     <a href="#0" class="btn btn-outline-white" data-duration-in=".5"
                                         data-animation-in="fadeInUp" data-delay-in=".5">Start Now</a>
                                     <a href="#0" class="btn btn-outline-primary text-white" data-duration-in=".6"
                                         data-animation-in="fadeInUp" data-delay-in=".6">Learn More</a>
-                                </div>
+                                </div> --}}
 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="slider-item" data-dot="&lt;i class=&quot;fa fa-hotel&quot;&gt;&lt;/i&gt; Dream"
-                style="background-image: url({{ asset('userHomepage') }}/images/slider/bg2.jpg);">
+            {{-- Slider 3 --}}
+            <div class="slider-item" data-dot="&lt;i class=&quot; slider3 fa fa-ticket&quot;&gt;&lt;/i&gt; {{ __('translate.ticket') }}"
+                style="background-image: url({{ asset('userHomepage') }}/images/slider/bg2.jpg); background-size: cover">
                 <div class="overlay2">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
@@ -149,26 +131,24 @@
                                     alt="">
                             </div>
                             <div class="col-md-6">
-                                <h2 class="h3" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">How
-                                    Big Can You Dream?</h2>
-                                <p class="mb-4" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. In
-                                    consequatur cumque natus!</p>
-                                <a href="#0" class="cd-hero__btn btn btn-outline-primary text-white "
-                                    data-duration-in=".4" data-animation-in="fadeInUp" data-delay-in=".6">Take a
-                                    Tour</a>
+                                <h2 class="h3" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">{{ __('translate.slider3Title1') }}</h2>
+                                <p class="mb-4" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">{{ __('translate.slider3Title2') }}</p>
+                                <a href="javascript:void(0);" class="cd-hero__btn btn btn-outline-primary text-white "
+                                    data-duration-in=".4" data-animation-in="fadeInUp" data-delay-in=".6">{{ __('translate.takeATour') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slider-item" data-dot="&lt;i class=&quot;fa fa-android&quot;&gt;&lt;/i&gt; Tech"
+            {{-- Slider 4 --}}
+            {{-- <div class="slider-item" data-dot="&lt;i class=&quot; slider4 fa fa-hashtag&quot;&gt;&lt;/i&gt; {{ __('translate.others') }}"
                 style="background-image: url({{ asset('userHomepage') }}/images/slider/bg3.jpg);">
                 <div class="overlay2">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
                             <div class="col-md-6">
-                                <h2 class="h3" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">
+                                <h2 class="h3" data-duration-in=".3" data-animation-in="fadeInUp"
+                                    data-delay-in=".4">
                                     Your Challenge is Our Progress</h2>
                                 <p class="mb-4" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. In
@@ -682,17 +662,18 @@
     <!--/ Image block end -->
     <!-- Pricing table start -->
     @if (count($packages) > 0)
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 heading">
-                    <span class="title-icon float-left"><i class="fa fa-list-ul"></i></span>
-                    <h2 class="title">{{ __('translate.packageHeading') }} <span class="title-desc mt-2">{{ __('translate.packageTitle') }}</span>
-                    </h2>
-                </div>
-            </div><!-- Title row end -->
-            <div class="row">
-                {{-- <!-- plan start -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 heading">
+                        <span class="title-icon float-left"><i class="fa fa-list-ul"></i></span>
+                        <h2 class="title">{{ __('translate.packageHeading') }} <span
+                                class="title-desc mt-2">{{ __('translate.packageTitle') }}</span>
+                        </h2>
+                    </div>
+                </div><!-- Title row end -->
+                <div class="row">
+                    {{-- <!-- plan start -->
                 <div class="col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".5s">
                     <div class="plan text-center">
                         <span class="plan-name">Basic <small>Monthly plan</small></span>
@@ -753,35 +734,37 @@
                     </div>
                 </div><!-- plan end --> --}}
 
-                @foreach ($packages as $package)
-                    <!-- plan start -->
-                    <div class="col-lg-4 col-md-6 wow fadeInUp m-auto" data-wow-delay="{{ 1 + ($loop->index * 0.5) }}s">
-                        <div class="plan text-center {{ $package->is_featured == 'yes' ? 'featured' : '' }}">
-                            <span class="plan-name">{{ $package->package_name }} ({{ $package->year }})
-                                <small>{{ $package->package_duration }}</small></span>
-                            <p class="plan-price"
-                            {{-- style="background-image: url('{{ $package->package_image }}'); background-size: cover;" --}}
-                            >
-                            @php
-                                // $package->package_price = number_format($package->package_price, 2);
-                            @endphp
-                            <sup class="currency">{{ app()->getLocale() == 'bn' ? '৳' : 'Tk' }}</sup><strong>{{ explode('.', $package->package_price)[0] }}</strong><sub>.{{ explode('.', $package->package_price)[1] }}</sub></p>
+                    @foreach ($packages as $package)
+                        <!-- plan start -->
+                        <div class="col-lg-4 col-md-6 wow fadeInUp m-auto"
+                            data-wow-delay="{{ 1 + $loop->index * 0.5 }}s">
+                            <div class="plan text-center {{ $package->is_featured == 'yes' ? 'featured' : '' }}">
+                                <span class="plan-name">{{ $package->package_name }} ({{ $package->year }})
+                                    <small>{{ $package->package_duration }}</small></span>
+                                <p class="plan-price" {{-- style="background-image: url('{{ $package->package_image }}'); background-size: cover;" --}}>
+                                    @php
+                                        // $package->package_price = number_format($package->package_price, 2);
+                                    @endphp
+                                    <sup
+                                        class="currency">{{ app()->getLocale() == 'bn' ? '৳' : 'Tk' }}</sup><strong>{{ explode('.', $package->package_price)[0] }}</strong><sub>.{{ explode('.', $package->package_price)[1] }}</sub>
+                                </p>
 
-                            <ul class="list-unstyled">
-                                @foreach ($package->features as $feature)
-                                    <li>{{ $feature }}</li>
-                                @endforeach
-                            </ul>
-                            <a class="btn btn btn-outline-primary" href="{{ route('homepage.package.show', $package->slug) }}">{{ __('translate.seeMore') }}</a>
+                                <ul class="list-unstyled">
+                                    @foreach ($package->features as $feature)
+                                        <li>{{ $feature }}</li>
+                                    @endforeach
+                                </ul>
+                                <a class="btn btn btn-outline-primary"
+                                    href="{{ route('homepage.package.show', $package->slug) }}">{{ __('translate.seeMore') }}</a>
+                            </div>
                         </div>
-                    </div>
-                    <!-- plan end -->
-                @endforeach
+                        <!-- plan end -->
+                    @endforeach
+                </div>
+                <!--/ Content row end -->
             </div>
-            <!--/ Content row end -->
-        </div>
-        <!--/  Container end-->
-    </section>
+            <!--/  Container end-->
+        </section>
     @endif
     <!--/ Pricing table end -->
 
@@ -912,11 +895,6 @@
     <!-- Parallax 1 end -->
 
 
-
-
-
-
-
     <!-- Testimonial start-->
     {{-- <section class="testimonial parallax parallax2">
         <div class="parallax-overlay"></div>
@@ -1036,4 +1014,24 @@
         <!--/ Container end -->
     </section>
     <!--/ Clients end -->
+@endsection
+
+
+@section('scripts')
+    {{-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = ['slider2', 'slider3', 'slider4', 'slider1'];
+            let currentIndex = 0;
+
+            function clickNextSlider() {
+                const currentSlider = document.querySelector(`.${sliders[currentIndex]}`);
+                if (currentSlider) {
+                    currentSlider.click();
+                }
+                currentIndex = (currentIndex + 1) % sliders.length;
+            }
+
+            setInterval(clickNextSlider, 3000);
+        });
+    </script> --}}
 @endsection

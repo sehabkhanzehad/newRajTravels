@@ -51,4 +51,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('userHomepage') }}/img/favicon/favicon-72x72.html">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('userHomepage') }}/img/favicon/favicon-54x54.html"> --}}
 
+
+    @yield('styles')
 </head>

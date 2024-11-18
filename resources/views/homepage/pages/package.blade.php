@@ -261,7 +261,8 @@
                                     <li>{{ $feature }}</li>
                                 @endforeach
                             </ul>
-                        </div><!-- Blog category end -->
+                        </div>
+                        <!-- Blog category end -->
 
 
 

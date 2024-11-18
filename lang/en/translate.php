@@ -11,7 +11,7 @@ return [
     'blog' => 'Blog',
     'contact' => 'Contact',
 
-    // Slider
+    // Slider 1
     'welcome' => 'Welcome to',
     'coverTitle1' => 'Best Hajj & Umrah Travel Agency',
     'companyName' => "M/S Raj Travels",
@@ -19,6 +19,20 @@ return [
     'licenseNumber' => '0935',
     'searchPlaceholder' => 'Enter hajj tracking no, passport no or license no for hajj agency information.',
     'hajj' => 'Hajj',
+
+    // Slider 2
+    'umrah' => 'Umrah',
+    'coverTitle2' => '"The journey of Hajj, a sacred encounter of the soul with Allah!"',
+    'shortDes' => 'With us, that journey is not just a trip, it is a sacred experience.',
+    'takeATour' => 'Take a Tour',
+
+    // Slider 3
+    'ticket' => 'Ticket',
+    'slider3Title1' => '"Our service, your benefit !"',
+    'slider3Title2' => 'We are here to help you reach your dream destination, at a low price and with reliability.',
+
+    // Slider 4
+    'others' => 'Others',
 
     // Service
     'serviceHeading' => 'Service We Provide',

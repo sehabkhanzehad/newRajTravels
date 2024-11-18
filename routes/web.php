@@ -45,18 +45,9 @@ Route::middleware('AuthCheck')->prefix('dashboard')->name('dashboard.')->group(f
         Route::get('/package-list', [PackageController::class, 'getPackages'])->name( 'packages.list');
         Route::get('/packages/{id}', [PackageController::class, 'singlePackage'])->name('packages.single');
         Route::get('/packages/{slug}', [PackageController::class, 'showPackage'])->name('packages.show');
+        Route::get('/packages/{id}/edit', [PackageController::class, 'editPackage'])->name('packages.edit');
+        Route::post('/packages/{package}', [PackageController::class, 'updatePackage'])->name('packages.update');
+        Route::delete('/packages/{id}', [PackageController::class, 'deletePackage'])->name('packages.delete');
 
-
-
-        // Route::put('/packages/{package}', [PackageController::class, 'updatePackage'])->name('packages.update');
-        // Route::delete('/packages/{package}', [PackageController::class, 'deletePackage'])->name('packages.delete');
-        // Route::get('/packages/{package}/edit', [PackageController::class, 'editPackage'])->name('packages.edit');
-        // Route::get('/packages/{package}/features', [PackageController::class, 'showPackageFeatures'])->name('packages.features');
-        // Route::post('/packages/{package}/features', [PackageController::class, 'storePackageFeature'])->name('packages.features.store');
-        // Route::delete('/packages/{package}/features/{feature}', [PackageController::class, 'deletePackageFeature'])->name('packages.features.delete');
-        // Route::get('/packages/{package}/features/{feature}/edit', [PackageController::class, 'editPackageFeature'])->name('packages.features.edit');
-        // Route::put('/packages/{package}/features/{feature}', [PackageController::class, 'updatePackageFeature'])->name('packages.features.update');
-        // Route::get('/packages/{package}/images', [PackageController::class, 'showPackageImages'])->name('packages.images');
-        // Route::post('/packages/{package}/images', [PackageController::class, 'storePackageImage'])->name('packages.images.store');
     });
 });

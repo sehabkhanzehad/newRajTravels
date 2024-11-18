@@ -30,3 +30,5 @@
 
  <!-- Main Script -->
  <script src="{{ asset('userHomepage') }}/js/script.js"></script>
+
+ @yield('scripts')
