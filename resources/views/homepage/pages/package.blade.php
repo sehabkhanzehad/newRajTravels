@@ -1,5 +1,13 @@
 @extends('homepage.layouts.main')
 @section('pageTitle', 'Package | ' . $package->name)
+@section('styles')
+<style>
+    .post-content  li {
+        margin-left: 20px;
+    }
+</style>
+@endsection
+
 @section('content')
     <div id="banner-area">
         <img src="{{ asset('userHomepage') }}/images/banner/banner1.jpg" class="w-100" style="height: 300px" alt="" />
