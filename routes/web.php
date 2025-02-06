@@ -15,7 +15,7 @@ Route::get('/lang/{locale}', [LanguageController::class, 'switchLanguage'])->nam
 Route::group(['as' => 'homepage.'], function () {
     Route::get("/", [HomepageController::class, "index"])->name("index");
     Route::post("/search", action: [HomepageController::class, "search"])->name("search");
-
+    Route::get("/about-us", [HomepageController::class, "aboutUs"])->name("about-us");
 
     Route::get('/package/{slug}', [HomepageController::class, 'showPackage'])->name('package.show');
 });

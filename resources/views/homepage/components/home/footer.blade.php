@@ -1,7 +1,7 @@
   <footer id="footer" class="footer">
-    <div class="container">
-        <div class="row">
-            {{-- <div class="col-md-4 col-lg-4 footer-widget mb-5 mb-lg-0">
+      <div class="container">
+          <div class="row">
+              {{-- <div class="col-md-4 col-lg-4 footer-widget mb-5 mb-lg-0">
                 <h3 class="widget-title">Recent Posts</h3>
                 <div class="latest-post-items media">
                     <div class="latest-post-content media-body">
@@ -36,9 +36,9 @@
                 </div><!-- 3rd Latest Post end -->
 
             </div> --}}
-            <!--/ End Recent Posts-->
+              <!--/ End Recent Posts-->
 
-			{{-- <div class="col-12 col-md-6  col-lg-4 footer-widget mb-5 mb-lg-0">
+              {{-- <div class="col-12 col-md-6  col-lg-4 footer-widget mb-5 mb-lg-0">
 				<h3 class="widget-title">Quick Links</h3>
 
 				<ul class="unstyled arrow">
@@ -58,33 +58,35 @@
 
 			</div> --}}
 
-            {{-- <div class="col-md-8 col-lg-4 footer-widget mb-5 mb-lg-0">
-                <h3 class="widget-title">Quick Links</h3>
-
-				<ul class="unstyled arrow">
-					<li><a href="#">About CraftTheme</a></li>
-					<li><a href="#">How We Help</a></li>
-					<li><a href="#">Upcoming Events</a></li>
-					<li><a href="#">Customer Support</a></li>
-					<li><a href="#">Fill a Form</a></li>
-					<li><a href="#">Latest News</a></li>
-					<li><a href="#">Features</a></li>
-					<li><a href="#">Shortcodes</a></li>
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">404 Error Page</a></li>
-					<li><a href="#">Coming Soon</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul> --}}
-
-
-
-
+              <div class="col-md-8 col-lg-6 footer-widget mb-5 mb-lg-0">
+                  <h3 class="widget-title">{{ __('translate.importantLinks') }}</h3>
+                  <ul class="unstyled arrow">
+                      <li><a href="https://hajj.gov.bd/" target="_blank">{{ __('translate.hajjMinistry') }}</a></li>
+                      <li><a href="http://www.mora.gov.bd/" target="_blank">{{ __('translate.religiousMinistry') }}</a>
+                      </li>
+                      <li><a href="https://hajoffice.gov.bd/" target="_blank">{{ __('translate.hajjOffice') }}</a></li>
+                      <li><a href="https://haabbd.com/" target="_blank">{{ __('translate.hajjAssociation') }}</a></li>
+                      <li><a href="https://www.biman-airlines.com/"
+                              target="_blank">{{ __('translate.bangladeshAirline') }}</a></li>
+                      <li><a href="https://www.saudia.com/" target="_blank">{{ __('translate.saudiAirline') }}</a></li>
+                      <li><a href="https://www.flynas.com/en" target="_blank">{{ __('translate.flyNas') }}</a></li>
+                      <li><a href="https://www.haj.gov.sa/" target="_blank">{{ __('translate.saudiHajj') }}</a></li>
+                      <li><a href="https://ehaj.haj.gov.sa/" target="_blank">{{ __('translate.saudiHajjPortal') }}</a>
+                      </li>
+                      <li><a href="https://visa.mofa.gov.sa/visaservices/searchvisa"
+                              target="_blank">{{ __('translate.saudiVisaLink') }}</a></li>
+                      </span>
+                  </ul>
 
 
 
-                {{-- <h3 class="widget-title">Flickr Photos</h3> --}}
 
-                {{-- <div class="img-gallery">
+
+
+
+                  {{-- <h3 class="widget-title">Flickr Photos</h3> --}}
+
+                  {{-- <div class="img-gallery">
                     <div class="img-container">
                         <a class="thumb-holder" data-rel="prettyPhoto"
                             href="{{ asset('userHomepage') }}/images/gallery/1.jpg">
@@ -124,36 +126,38 @@
                         </a>
                     </div>
                 </div> --}}
-            {{-- </div> --}}
-            <!--/ end flickr -->
+              </div>
+              <!--/ end flickr -->
 
-            <div class="col-md-12 col-lg-4 footer-widget footer-about-us mb-5 mb-lg-0 m-auto">
-                <h3 class="widget-title">{{ __('translate.aboutUs') }}</h3>
-                <p>{{ __('translate.footerDescription')}}</p>
-                <h4>{{ __('translate.address.0') }}</h4>
-                <p>{{ __('translate.address.1') }}</p>
-                <div class="row">
-                    <div class="col-12">
-                        <h4>{{ __('translate.email.0') }}</h4>
-                        <p><a href="mailto:{{ __('translate.email.1') }}" class="text-white">{{ __('translate.email.1') }}</a></p>
-                    </div>
-                    <div class="col-12">
-                        <h4>{{ __('translate.phone.0') }}</h4>
-                        <p><a href="tel:{{ __('translate.phone.1') }}" class="text-white">{{ __('translate.phone.1') }}</a></p>
-                    </div>
-                </div>
-                <form action="#" role="form">
-                    <div class="input-group subscribe">
-                        <input type="email" class="form-control" placeholder="{{ __('translate.emailPlaceholder') }}"
-                            required="">
-                        <span class="input-group-addon">
-                            <button class="btn" type="submit"><i class="fa fa-envelope-o"> </i></button>
-                        </span>
-                    </div>
-                </form>
-            </div>
-            <!--/ end about us -->
+              <div class="col-md-12 col-lg-4 footer-widget footer-about-us mb-5 mb-lg-0 m-auto">
+                  <h3 class="widget-title">{{ __('translate.aboutUs') }}</h3>
+                  <p>{{ __('translate.footerDescription') }}</p>
+                  <h4>{{ __('translate.address.0') }}</h4>
+                  <p>{{ __('translate.address.1') }}</p>
+                  <div class="row">
+                      <div class="col-12">
+                          <h4>{{ __('translate.email.0') }}</h4>
+                          <p><a href="mailto:{{ __('translate.email.1') }}"
+                                  class="text-white">{{ __('translate.email.1') }}</a></p>
+                      </div>
+                      <div class="col-12">
+                          <h4>{{ __('translate.phone.0') }}</h4>
+                          <p><a href="tel:{{ __('translate.phone.1') }}"
+                                  class="text-white">{{ __('translate.phone.1') }}</a></p>
+                      </div>
+                  </div>
+                  <form action="#" role="form">
+                      <div class="input-group subscribe">
+                          <input type="email" class="form-control"
+                              placeholder="{{ __('translate.emailPlaceholder') }}" required="">
+                          <span class="input-group-addon">
+                              <button class="btn" type="submit"><i class="fa fa-envelope-o"> </i></button>
+                          </span>
+                      </div>
+                  </form>
+              </div>
+              <!--/ end about us -->
 
-        </div><!-- Row end -->
-    </div><!-- Container end -->
-</footer>
+          </div><!-- Row end -->
+      </div><!-- Container end -->
+  </footer>

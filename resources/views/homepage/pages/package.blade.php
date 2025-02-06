@@ -1,5 +1,5 @@
 @extends('homepage.layouts.main')
-@section('pageTitle', 'Package | ' . $package->name)
+@section('pageTitle', "Package | {{ $package->name }}")
 @section('styles')
 <style>
     .post-content  li {

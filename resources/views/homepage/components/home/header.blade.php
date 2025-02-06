@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-dark">
-                    <a class="navbar-brand navbar-bg" href="{{ route("homepage.index") }}"><img class="img-fluid float-left w-25" 
+                    <a class="navbar-brand navbar-bg" href="{{ route("homepage.index") }}"><img class="img-fluid float-left w-25"
                         src="{{ asset('userHomepage') }}/images/logo.png" alt="logo"></a>
                     <button class="navbar-toggler ml-auto border-0 rounded-0 text-white" type="button"
                         data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
@@ -24,7 +24,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:void(0)">{{ __('translate.aboutUs') }}</a>
+                                <a class="nav-link" 
+                                {{-- href="{{ route("homepage.about-us") }}" --}}
+                                >{{ __('translate.aboutUs') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:void(0)">{{ __('translate.services') }}</a>

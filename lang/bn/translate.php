@@ -79,6 +79,20 @@ return [
     'email' => ['ই-মেইল', 'rajtravels.bd@gmail.com'],
     'emailPlaceholder' => 'ই-মেইল এড্রেস',
 
+    // Important Links
+    'importantLinks' => 'গুরুত্বপূর্ণ লিংক',
+    'hajjMinistry' => 'হজ মন্ত্রণালয়',
+    'religiousMinistry' => 'ধর্ম বিষয়ক মন্ত্রণালয়',
+    'hajjOffice' => 'হজ অফিস, ঢাকা',
+    'hajjAssociation' => 'হজ্জ এজেন্সীজ এসোসিয়েশন অব বাংলাদেশ',
+    'bangladeshAirline' => 'বিমান বাংলাদেশ এয়ারলাইন্স',
+    'saudiAirline' => 'সৌদিয়া এয়ারলাইন্স',
+    'flyNas' => 'ফ্লাইনাস',
+    'saudiHajj' => 'সৌদি হজ ও ওমরাহ মন্ত্রণালয়',
+    'saudiHajjPortal' => 'সৌদি ই- হজ পোর্টাল',
+    'saudiVisaLink' => 'সৌদি ই- ভিসা লিংক',
+
+
     // Copyright
     'copyright' => 'এই সাইটের সম্পূর্ণতা কপিরাইট 2024 দ্বারা সুরক্ষিত',
     'developed' => 'ডেভেলপড বাই',
@@ -99,5 +113,3 @@ return [
     // 'password' => 'পাসওয়ার্ড',
     // 'search' => 'সার্চ',
 ];
-
-

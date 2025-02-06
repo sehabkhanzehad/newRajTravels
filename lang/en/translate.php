@@ -78,6 +78,23 @@ return [
     'phone' => ["Phone No", '+880 1799 745020'],
     'emailPlaceholder' => 'Email Address',
 
+
+
+    // Important Links
+    'importantLinks' => 'Important Links',
+    'hajjMinistry' => 'Ministry of Hajj',
+    'religiousMinistry' => 'Ministry of Religious Affairs',
+    'hajjOffice' => 'Hajj Office, Dhaka',
+    'hajjAssociation' => 'Hajj Agencies Association of Bangladesh',
+    'bangladeshAirline' => 'Biman Bangladesh Airlines',
+    'saudiAirline' => 'Saudia Airlines',
+    'flyNas' => 'FlyNas',
+    'saudiHajj' => 'Saudi Hajj and Umrah Ministry',
+    'saudiHajjPortal' => 'Saudi E-Hajj Portal',
+    'saudiVisaLink' => 'Saudi E-Visa Link',
+
+
+
     // Copyright
     'copyright' => 'The entirety of this site is protected by copyright 2024',
     'developed' => 'Developed by',

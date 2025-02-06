@@ -42,6 +42,21 @@ class HomepageController extends Controller
         // https://hajj.gov.bd/agencies/0935
     }
 
+
+
+    public function aboutUs()
+    {
+        return view("homepage.pages.about-us");
+    }
+
+
+
+
+
+
+
+
+
     public function showPackage($slug)
     {
         $package = Package::where('slug', $slug)->first();
